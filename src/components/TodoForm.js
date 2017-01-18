@@ -1,7 +1,7 @@
 import React from 'react';
 import { addTodo } from '../actions';
 
-const TodoList = () => {
+const TodoForm = () => {
   let input;
 
   return (
@@ -9,6 +9,7 @@ const TodoList = () => {
     <form onSubmit={(e) => {
         e.preventDefault()
         addTodo(input.value)
+        input.value = '';
       }}>
       <input ref={node => {
         input = node
@@ -16,7 +17,8 @@ const TodoList = () => {
       </input>
       <button>Add Todo</button>
     </form>
+
   </div>
 );}
 
-export default TodoList;
+export default TodoForm;
