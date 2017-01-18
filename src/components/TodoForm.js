@@ -1,8 +1,9 @@
 import React from 'react';
 import { addTodo } from '../actions';
 import { connect } from 'react-redux';
+import TodoList from './TodoList';
 
-const TodoForm = ({ dispatch }) => {
+const TodoForm = ({ dispatch, todos }) => {
   let input;
 
   return (
@@ -18,7 +19,7 @@ const TodoForm = ({ dispatch }) => {
       </input>
       <button>Add Todo</button>
     </form>
-
+    <TodoList />
   </div>
 );}
 
