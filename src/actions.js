@@ -1,10 +1,13 @@
-const addTodo = (text) => ({
+const addTodo = (text) => {
+  console.log(text);
+  return {
   type: 'ADD_TODO',
   text
-});
+  }
+};
 
 const toggleTodo = (index) => ({
-  type: 'TOGGLE_TODO';
+  type: 'TOGGLE_TODO',
   index
 })
 
