@@ -3,9 +3,18 @@ import Filter from './Filter';
 
 const Footer = () => (
   <div>
-    <Filter sort="All"/>
-    <Filter sort="Active"/>
-    <Filter sort="Completed"/>
+    <Filter
+      filter="All"
+      onClick={() => console.log('footer')}
+      />
+    <Filter
+      filter="Active"
+      onClick={() => console.log('footer')}
+      />
+    <Filter
+      filter="Completed"
+      onClick={() => console.log('footer')}
+      />
   </div>
 )
 

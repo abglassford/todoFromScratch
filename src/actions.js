@@ -8,10 +8,10 @@ const toggleTodo = (index) => ({
   index
 })
 
-const setVisibilityFilter = (filter) => {
-  type: 'SET_VISIBILITY_FILTER';
+const setVisibilityFilter = (filter) => ({
+  type: 'SET_VISIBILITY_FILTER',
   filter
-}
+})
 
 export {
   addTodo,

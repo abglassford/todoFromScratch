@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 
-const visibilityFilter = (state = {}, action) => {
+const initialState = {
+  visibilityFilter: 'SHOW_ALL',
+  todos: []
+}
+
+const visibilityFilter = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_VISIBILITY_FILTER':
       return {
-        visibilityFilter: action.type
+        visibilityFilter: action.filter
     };
     default:
       return state;

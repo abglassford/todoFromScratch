@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Filter = ({ sort }) =>
-  <button>
-    {sort}
+const Filter = ({ filter, onClick }) =>
+  <button
+    onClick={onClick}
+    >
+    {filter}
   </button>
 
 export default Filter;
