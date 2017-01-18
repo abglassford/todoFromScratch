@@ -1,21 +1,23 @@
 import React from 'react';
 import Filter from './Filter';
+import { setVisibilityFilter } from '../actions';
+import { connect } from 'react-redux';
 
-const Footer = () => (
+const Footer = ({ dispatch }) => (
   <div>
     <Filter
       filter="All"
-      onClick={() => console.log('footer')}
+      onClick={() => dispatch(setVisibilityFilter('SHOW_ALL'))}
       />
     <Filter
       filter="Active"
-      onClick={() => console.log('footer')}
+      onClick={() => dispatch(setVisibilityFilter('SHOW_ACTIVE'))}
       />
     <Filter
       filter="Completed"
-      onClick={() => console.log('footer')}
+      onClick={() => dispatch(setVisibilityFilter('SHOW_COMPLETED'))}
       />
   </div>
 )
 
-export default Footer;
+export default connect()(Footer);

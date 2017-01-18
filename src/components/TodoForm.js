@@ -1,14 +1,15 @@
 import React from 'react';
 import { addTodo } from '../actions';
+import { connect } from 'react-redux';
 
-const TodoForm = () => {
+const TodoForm = ({ dispatch }) => {
   let input;
 
   return (
   <div>
     <form onSubmit={(e) => {
         e.preventDefault()
-        addTodo(input.value)
+        dispatch(addTodo(input.value))
         input.value = '';
       }}>
       <input ref={node => {
@@ -21,4 +22,4 @@ const TodoForm = () => {
   </div>
 );}
 
-export default TodoForm;
+export default connect()(TodoForm);

@@ -8,6 +8,7 @@ const initialState = {
 const visibilityFilter = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_VISIBILITY_FILTER':
+      console.log('visibilityFilter');
       return {
         visibilityFilter: action.filter
     };
@@ -19,9 +20,11 @@ const visibilityFilter = (state = initialState, action) => {
 const todoReduce = (state = {}, action) => {
   switch(action.type) {
     case 'ADD_TODO':
-      return state;
+      console.log('add todo');
+      break;
     case 'TOGGLE_TODO':
-      return state;
+      console.log('toggle todo');
+      break;
     default:
     return state;
   }
