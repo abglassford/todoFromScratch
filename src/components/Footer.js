@@ -1,8 +1,11 @@
 import React from 'react';
+import Filter from './Filter';
 
 const Footer = () => (
   <div>
-    <h3>Footer</h3>
+    <Filter sort="All"/>
+    <Filter sort="Active"/>
+    <Filter sort="Completed"/>
   </div>
 )
 
