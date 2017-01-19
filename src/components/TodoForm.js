@@ -10,8 +10,10 @@ const TodoForm = ({ dispatch, todos }) => {
   <div>
     <form onSubmit={(e) => {
         e.preventDefault()
-        dispatch(addTodo(input.value))
-        input.value = '';
+        if (input.value.trim()) {
+          dispatch(addTodo(input.value))
+          input.value = '';
+        }        
       }}>
       <input ref={node => {
         input = node
