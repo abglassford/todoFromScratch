@@ -1,5 +1,3 @@
-// import { combineReducers } from 'redux';
-
 const initialState = {
   visibilityFilter: 'SHOW_ALL',
   todos: []
@@ -11,14 +9,14 @@ const todoApp = (state = initialState, action) => {
       return Object.assign({}, state, {
         todos: [...state.todos, {
           text: action.text,
-          completed: false
+          completed: false,
+          id: action.id
         }]
       });
     case 'TOGGLE_TODO':
       return Object.assign({}, state, {
-        todos: state.todos.map((todo, i) => {
-          console.log(todo);
-          if(i === action.index) {
+        todos: state.todos.map(todo => {
+          if(todo.id === action.id) {
             return Object.assign({}, todo, {
               completed: !todo.completed
             })

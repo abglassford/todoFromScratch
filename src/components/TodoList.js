@@ -11,6 +11,8 @@ const getTodos = (todos, filter) => {
       return todos.filter(t => !t.completed);
     case 'SHOW_COMPLETED':
       return todos.filter(t => t.completed);
+    default:
+      return todos;
   }
 };
 
@@ -26,7 +28,7 @@ const TodoList = ({ todos, dispatch }) =>
       <Todo
         key={i}
         text={todo.text}
-        onClick={() => dispatch(toggleTodo(i))}
+        onClick={() => dispatch(toggleTodo(todo.id))}
         completed={todo.completed}
         />
     )}

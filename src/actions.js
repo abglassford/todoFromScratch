@@ -1,11 +1,14 @@
+import uuidv1 from 'uuid';
+
 const addTodo = (text) => ({
   type: 'ADD_TODO',
-  text
+  text,
+  id: uuidv1()
 })
 
-const toggleTodo = (index) => ({
+const toggleTodo = (id) => ({
   type: 'TOGGLE_TODO',
-  index
+  id
 })
 
 const setVisibilityFilter = (filter) => ({
