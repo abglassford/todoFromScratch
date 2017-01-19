@@ -1,28 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { addTodo } from '../actions';
 import { connect } from 'react-redux';
 import TodoList from './TodoList';
 
-const TodoForm = ({ dispatch, todos }) => {
-  let input;
-
-  return (
-  <div>
-    <form onSubmit={(e) => {
-        e.preventDefault()
-        if (input.value.trim()) {
-          dispatch(addTodo(input.value))
-          input.value = '';
-        }        
-      }}>
-      <input ref={node => {
-        input = node
-      }}>
-      </input>
-      <button>Add Todo</button>
-    </form>
-    <TodoList />
-  </div>
-);}
+class TodoForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+  onInputChange() {
+    return (e) => {
+      this.setState({value: e.target.value})
+    };
+  }
+  submit() {
+    return (e) => {
+      e.preventDefault()
+      const value = this.state.value;
+      const dispatch = this.props.dispatch;
+      if (value.trim()) {
+        dispatch(addTodo(value));
+        this.setState({value: ''});
+      }
+    };
+  }
+  render() {
+    return (
+    <div>
+      <form onSubmit={this.submit()}>
+        <input
+          value={this.state.value}
+          onChange={this.onInputChange()}
+          />
+        <button>Add Todo</button>
+      </form>
+      <TodoList />
+    </div>
+    );
+  }
+}
 
 export default connect()(TodoForm);
