@@ -10,7 +10,6 @@ const todoApp = (state = initialState, action) => {
         todos: action.todos,
       });
     case 'ADD_TODO':
-      console.log('reducer', action);
       return Object.assign({}, state, {
         todos: [...state.todos, {
           text: action.todo.text,
