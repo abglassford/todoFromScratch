@@ -7,13 +7,18 @@
     },
     {
       "text": "Sleep",
-      "completed": false,
+      "completed": true,
       "id": "2"
     },
     {
       "text": "Code",
-      "completed": false,
+      "completed": true,
       "id": "3"
+    },
+    {
+      "text": "Learn React",
+      "completed": false,
+      "id": "54245a75-6c2f-447c-b227-0618c915778b"
     }
   ]
 }

@@ -1,19 +1,18 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { postTodo, getTodos, toggleTodo } from './routes';
+import { updateTodo } from './actions';
 
-export function* addSaga() {
-  yield call(postTodo, 'taco');
+export function* addSaga(action) {
+  const todo = yield call(postTodo, action.text);
   yield put({
     type: 'ADD_TODO',
+    todo,
   });
 }
 
 export function* toggleSaga(action) {
-  const todo = yield call(toggleTodo, action);
-  yield put({
-    type: 'TOGGLE_TODO',
-    todo,
-  });
+  const result = yield call(toggleTodo, action);
+  yield put(updateTodo(result.data));
 }
 
 export function* watchAddSaga() {

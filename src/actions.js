@@ -1,9 +1,6 @@
-import uuidv1 from 'uuid';
-
 const addTodo = text => ({
   type: 'ADD_TODO_SAGA',
   text,
-  id: uuidv1(),
 });
 
 const toggleTodo = todo => ({
@@ -16,8 +13,14 @@ const setVisibilityFilter = filter => ({
   filter,
 });
 
+const updateTodo = todo => ({
+  type: 'UPDATE_TODO',
+  todo,
+});
+
 export {
   addTodo,
   toggleTodo,
   setVisibilityFilter,
+  updateTodo,
 };

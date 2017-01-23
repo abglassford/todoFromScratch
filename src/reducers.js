@@ -10,21 +10,19 @@ const todoApp = (state = initialState, action) => {
         todos: action.todos,
       });
     case 'ADD_TODO':
+      console.log('reducer', action);
       return Object.assign({}, state, {
         todos: [...state.todos, {
-          text: action.text,
-          completed: false,
-          id: action.id,
+          text: action.todo.text,
+          completed: action.todo.completed,
+          id: action.todo.id,
         }],
       });
-    case 'TOGGLE_TODO':
-      console.log('reducer', action.todo.data.completed);
+    case 'UPDATE_TODO':
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {
-          if (todo.id === action.todo.data.id) {
-            return Object.assign({}, todo, {
-              completed: action.todo.data.completed,
-            });
+          if (todo.id === action.todo.id) {
+            return Object.assign({}, todo, action.todo);
           }
           return todo;
         }),
