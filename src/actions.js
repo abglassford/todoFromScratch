@@ -1,10 +1,10 @@
-const addTodo = text => ({
+const addTodoSaga = text => ({
   type: 'ADD_TODO_SAGA',
   text,
 });
 
-const toggleTodo = todo => ({
-  type: 'TOGGLE_TODO_SAGA',
+const updateTodoSaga = todo => ({
+  type: 'UPDATE_TODO_SAGA',
   todo,
 });
 
@@ -18,9 +18,21 @@ const updateTodo = todo => ({
   todo,
 });
 
+const addTodo = todo => ({
+  type: 'ADD_TODO',
+  todo,
+});
+
+const getAllTodos = todos => ({
+  type: 'GET_ALL_TODOS',
+  todos,
+});
+
 export {
-  addTodo,
-  toggleTodo,
+  addTodoSaga,
+  updateTodoSaga,
   setVisibilityFilter,
   updateTodo,
+  addTodo,
+  getAllTodos,
 };

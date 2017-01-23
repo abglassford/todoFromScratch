@@ -1,13 +1,16 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { postTodo, getTodos, toggleTodo } from './routes';
-import { updateTodo } from './actions';
+import { updateTodo, addTodo,
+getAllTodos } from './actions';
+
+export function* getSaga() {
+  const result = yield call(getTodos);
+  yield put(getAllTodos(result));
+}
 
 export function* addSaga(action) {
-  const todo = yield call(postTodo, action.text);
-  yield put({
-    type: 'ADD_TODO',
-    todo,
-  });
+  const result = yield call(postTodo, action.text);
+  yield put(addTodo(result));
 }
 
 export function* toggleSaga(action) {
@@ -15,24 +18,16 @@ export function* toggleSaga(action) {
   yield put(updateTodo(result.data));
 }
 
+export function* watchGetSaga() {
+  yield takeEvery('GET_TODOS', getSaga);
+}
+
 export function* watchAddSaga() {
   yield takeEvery('ADD_TODO_SAGA', addSaga);
 }
 
-export function* getSaga() {
-  const todos = yield call(getTodos);
-  yield put({
-    type: 'GET_ALL_TODOS',
-    todos,
-  });
-}
-
 export function* watchToggleSaga() {
-  yield takeEvery('TOGGLE_TODO_SAGA', toggleSaga);
-}
-
-export function* watchGetSaga() {
-  yield takeEvery('GET_TODOS', getSaga);
+  yield takeEvery('UPDATE_TODO_SAGA', toggleSaga);
 }
 
 export default function* rootSaga() {

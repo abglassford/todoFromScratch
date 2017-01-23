@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import { updateTodoSaga } from '../actions';
 import Todo from './Todo';
 
 const getTodos = (todos, filter) => {
@@ -43,7 +43,7 @@ class TodoList extends Component {
           <Todo
             key={todo.id}
             text={todo.text}
-            onClick={() => this.props.dispatch(toggleTodo(todo))}
+            onClick={() => this.props.dispatch(updateTodoSaga(todo))}
             completed={todo.completed}
           />,
         )}

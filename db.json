@@ -12,13 +12,38 @@
     },
     {
       "text": "Code",
-      "completed": true,
+      "completed": false,
       "id": "3"
     },
     {
       "text": "Learn React",
       "completed": false,
       "id": "54245a75-6c2f-447c-b227-0618c915778b"
+    },
+    {
+      "text": "sdfsd",
+      "completed": false,
+      "id": "fd4314b8-874e-436c-b366-676d8addc30c"
+    },
+    {
+      "text": "sfsd",
+      "completed": true,
+      "id": "f11c710f-7cff-419b-aabc-d58ccab273e2"
+    },
+    {
+      "text": "adsf",
+      "completed": true,
+      "id": "57176690-8093-48a4-876e-860289d0c98f"
+    },
+    {
+      "text": "sdfasdf",
+      "completed": true,
+      "id": "75645ec0-61dc-4f7c-a412-32117bcde976"
+    },
+    {
+      "text": "fsdfsdfsfsdf",
+      "completed": true,
+      "id": "60dfd3ff-93cd-4e0c-9694-c21c035745e7"
     }
   ]
 }
