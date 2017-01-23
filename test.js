@@ -49,6 +49,11 @@ const update = {
   },
 };
 
+const filter = {
+  type: 'SET_VISIBILITY_FILTER',
+  filter: 'SHOW_ACTIVE',
+};
+
 describe('todoApp', () => {
   it('should return an object no matter what case is passed', () => {
     assert.typeOf(todoApp({}, {}), 'object');
@@ -94,6 +99,12 @@ describe('todoApp', () => {
           id: '3',
         },
       ],
+    });
+  });
+  it('should update the visibility filter when prompted', () => {
+    expect(todoApp(testState, filter)).to.deep.equal({
+      visibilityFilter: 'SHOW_ACTIVE',
+      todos: testState.todos,
     });
   });
 });
