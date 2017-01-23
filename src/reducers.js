@@ -18,11 +18,12 @@ const todoApp = (state = initialState, action) => {
         }],
       });
     case 'TOGGLE_TODO':
+      console.log('reducer', action.todo.data.completed);
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {
-          if (todo.id === action.id) {
+          if (todo.id === action.todo.data.id) {
             return Object.assign({}, todo, {
-              completed: !todo.completed,
+              completed: action.todo.data.completed,
             });
           }
           return todo;

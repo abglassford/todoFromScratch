@@ -15,7 +15,10 @@ const toggleTodo = (action) => {
     ...action.todo,
     completed: !completed,
   })
-  .then(data => data);
+  .then((data) => {
+    console.log('after', data);
+    return data;
+  });
 };
 
 export {
