@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Todo from './Todo';
 
 const getTodos = (todos, filter) => {
-  switch(filter) {
+  switch (filter) {
     case 'SHOW_ALL':
       return todos;
     case 'SHOW_ACTIVE':

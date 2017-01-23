@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Filter = ({ filter, onClick }) =>
   <button
     onClick={onClick}
-    >
+  >
     {filter}
-  </button>
+  </button>;
+
+Filter.propTypes = {
+  filter: PropTypes.string,
+  onClick: PropTypes.func,
+};
+
+Filter.defaultProps = {
+  filter: '',
+  onClick: () => {},
+};
 
 export default Filter;
