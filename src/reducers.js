@@ -5,6 +5,10 @@ const initialState = {
 
 const todoApp = (state = initialState, action) => {
   switch (action.type) {
+    case 'GET_ALL_TODOS':
+      return Object.assign({}, state, {
+        todos: action.todos,
+      });
     case 'ADD_TODO':
       return Object.assign({}, state, {
         todos: [...state.todos, {

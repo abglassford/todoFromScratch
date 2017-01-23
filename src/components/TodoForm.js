@@ -42,7 +42,9 @@ class TodoForm extends Component {
           />
           <button>Add Todo</button>
         </form>
-        <TodoList />
+        <TodoList
+          getTodos={() => this.props.dispatch({ type: 'GET_TODOS' })}
+        />
       </div>
     );
   }

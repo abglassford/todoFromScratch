@@ -6,6 +6,7 @@
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-eslint": "^7.1.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",

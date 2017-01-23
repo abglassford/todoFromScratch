@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
 import Todo from './Todo';
@@ -20,25 +20,36 @@ const mapState = state => ({
   todos: getTodos(state.todos, state.visibilityFilter),
 });
 
-const TodoList = ({ todos, dispatch }) =>
-  <div>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        text={todo.text}
-        onClick={() => dispatch(toggleTodo(todo.id))}
-        completed={todo.completed}
-      />,
-    )}
-  </div>;
+class TodoList extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func,
+    todos: PropTypes.array,
+    getTodos: PropTypes.func,
+  }
+  static defaultProps = {
+    dispatch: () => {},
+    todos: [],
+    getTodos: () => {},
+  }
 
-TodoList.propTypes = {
-  todos: PropTypes.array,
-  dispatch: PropTypes.func,
-};
-TodoList.defaultProps = {
-  todos: [],
-  dispatch: () => {},
-};
+  componentWillMount() {
+    this.props.getTodos();
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.todos.map(todo =>
+          <Todo
+            key={todo.id}
+            text={todo.text}
+            onClick={() => this.props.dispatch(toggleTodo(todo))}
+            completed={todo.completed}
+          />,
+        )}
+      </div>
+    );
+  }
+}
 
 export default connect(mapState)(TodoList);
