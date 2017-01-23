@@ -1,23 +1,23 @@
 import uuidv1 from 'uuid';
 
-const addTodo = (text) => ({
+const addTodo = text => ({
   type: 'ADD_TODO',
   text,
-  id: uuidv1()
-})
+  id: uuidv1(),
+});
 
-const toggleTodo = (id) => ({
+const toggleTodo = id => ({
   type: 'TOGGLE_TODO',
-  id
-})
+  id,
+});
 
-const setVisibilityFilter = (filter) => ({
+const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
-  filter
-})
+  filter,
+});
 
 export {
   addTodo,
   toggleTodo,
-  setVisibilityFilter
+  setVisibilityFilter,
 };

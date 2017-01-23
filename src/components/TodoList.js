@@ -1,6 +1,6 @@
-import React from 'react';
-import { toggleTodo } from '../actions';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { toggleTodo } from '../actions';
 import Todo from './Todo';
 
 const getTodos = (todos, filter) => {
@@ -16,22 +16,29 @@ const getTodos = (todos, filter) => {
   }
 };
 
-const mapState = (state) => {
-  return {
-    todos: getTodos(state.todos, state.visibilityFilter)
-  }
-};
+const mapState = state => ({
+  todos: getTodos(state.todos, state.visibilityFilter),
+});
 
 const TodoList = ({ todos, dispatch }) =>
   <div>
-    {todos.map((todo, i) =>
+    {todos.map(todo =>
       <Todo
-        key={i}
+        key={todo.id}
         text={todo.text}
         onClick={() => dispatch(toggleTodo(todo.id))}
         completed={todo.completed}
-        />
+      />,
     )}
   </div>;
+
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  dispatch: PropTypes.func,
+};
+TodoList.defaultProps = {
+  todos: [],
+  dispatch: () => {},
+};
 
 export default connect(mapState)(TodoList);
