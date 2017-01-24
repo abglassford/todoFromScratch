@@ -1,7 +1,7 @@
 import { assert, expect } from 'chai';
 import uuidv1 from 'uuid';
-import todoApp from './src/reducers';
-import { completeTodoAction, addTodo, getAllTodos, setVisibilityFilter } from './src/actions';
+import todoApp from '../reducers';
+import { completeTodoAction, addTodo, getAllTodos, setVisibilityFilter } from '../actions';
 
 const testState = {
   visibilityFilter: 'SHOW_ALL',
