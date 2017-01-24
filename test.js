@@ -1,8 +1,7 @@
 import { assert, expect } from 'chai';
 import uuidv1 from 'uuid';
 import todoApp from './src/reducers';
-import { completeTodoAction, addTodo,
-getAllTodos } from './src/actions';
+import { completeTodoAction, addTodo, getAllTodos, setVisibilityFilter } from './src/actions';
 
 const testState = {
   visibilityFilter: 'SHOW_ALL',
@@ -51,12 +50,10 @@ describe('todoApp', () => {
       id: '3',
     };
     const state = todoApp(testState, completeTodoAction(todo));
-    expect(state.todos).to.include(todo);
+    expect(state.todos[2].completed).to.equal(true);
   });
-  // xit('should update the visibility filter when prompted', () => {
-  //   expect(todoApp(testState, filter)).to.deep.equal({
-  //     visibilityFilter: 'SHOW_ACTIVE',
-  //     todos: testState.todos,
-  //   });
-  // });
+  it('should update the visibility filter when prompted', () => {
+    const state = todoApp(testState, setVisibilityFilter('SHOW_ACTIVE'));
+    expect(state.visibilityFilter).to.equal('SHOW_ACTIVE');
+  });
 });
