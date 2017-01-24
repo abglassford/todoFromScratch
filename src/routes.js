@@ -22,8 +22,13 @@ const toggleTodo = (action) => {
   .then(data => data);
 };
 
+const deleteTodo = (action) => {
+  console.log(action);
+};
+
 export {
   postTodo,
   getTodos,
   toggleTodo,
+  deleteTodo,
 };

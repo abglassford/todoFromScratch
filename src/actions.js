@@ -28,6 +28,11 @@ const getAllTodos = todos => ({
   todos,
 });
 
+const deleteTodoSaga = todo => ({
+  type: 'DELETE_TODO_SAGA',
+  todo,
+});
+
 export {
   addTodoSaga,
   updateTodoSaga,
@@ -35,4 +40,5 @@ export {
   updateTodo,
   addTodo,
   getAllTodos,
+  deleteTodoSaga,
 };
