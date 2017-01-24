@@ -39,6 +39,7 @@ button {
   width: 20px;
   padding: 2px;
   text-align: center;
+  border-radius: 50%;
 }
 
 .complete {
@@ -46,6 +47,7 @@ button {
   width: 20px;
   padding: 2px;
   text-align: center;
+  border-radius: 50%;
 }
 
 .incomplete {
@@ -53,13 +55,26 @@ button {
   width: 20px;
   padding: 2px;
   text-align: center;
+  border-radius: 50%;
 }
 
-.edit {
-  background-color: rgb(250, 180, 64);
+.submitEdit {
+  background-color: rgb(97, 228, 118);
+  width: 20px;
+  padding: 2px;
+  text-align: center;
+  border-radius: 50%;
 }
 
 table {
   margin: 10px auto 10px auto;
-  border-spacing: 3px;
+  border-spacing: 10px;
+}
+
+.todoEditInput {
+  height: 16px;
+  width: 60px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }

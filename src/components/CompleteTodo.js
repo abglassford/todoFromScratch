@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const CompleteTodo = ({ onClick, completed }) => {
-  if (completed) {
+  if (!completed) {
     return (
       <button
         className="incomplete"

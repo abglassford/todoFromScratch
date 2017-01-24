@@ -28,9 +28,20 @@ const deleteTodo = (action) => {
   .then(data => data);
 };
 
+const editTodo = (action) => {
+  const id = action.todo.id;
+  const text = action.todo.text;
+  return axios.put(`${url}/${id}`, {
+    ...action.todo,
+    text,
+  })
+  .then(data => data);
+};
+
 export {
   postTodo,
   getTodos,
   updateTodo,
   deleteTodo,
+  editTodo,
 };

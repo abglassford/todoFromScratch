@@ -9,6 +9,7 @@ class Todo extends Component {
     completed: PropTypes.bool,
     completeTodo: PropTypes.func,
     deleteTodo: PropTypes.func,
+    editTodo: PropTypes.func,
   }
 
   static defaultProps = {
@@ -16,12 +17,14 @@ class Todo extends Component {
     completed: false,
     completeTodo: () => {},
     deleteTodo: () => {},
+    editTodo: () => {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
       editable: false,
+      value: this.props.text,
     };
   }
 
@@ -38,24 +41,30 @@ class Todo extends Component {
       return (
         <tr>
           <td>
-            <form
-              onSubmit={(e) => {
+            <input
+              className="todoEditInput"
+              defaultValue={this.props.text}
+              onChange={(e) => {
+                this.setState({
+                  value: e.target.value,
+                });
+              }}
+            />
+          </td>
+          <td>
+            <button
+              className="submitEdit"
+              dangerouslySetInnerHTML={{
+                __html: '&#x2713',
+              }}
+              onClick={(e) => {
                 e.preventDefault();
+                this.props.editTodo(this.state.value);
                 this.setState({
                   editable: false,
                 });
               }}
-            >
-              <input
-                className="todoEdit"
-                defaultValue={this.props.text}
-              />
-              <button
-                className="edit"
-              >
-              Submit
-            </button>
-            </form>
+            />
           </td>
         </tr>
       );
@@ -78,8 +87,6 @@ class Todo extends Component {
             onClick={this.props.completeTodo}
             completed={this.props.completed}
           />
-        </td>
-        <td>
           <DeleteTodo
             onClick={this.props.deleteTodo}
           />

@@ -4,7 +4,7 @@ const addTodoSaga = text => ({
 });
 
 const completeTodoSaga = todo => ({
-  type: 'UPDATE_TODO_SAGA',
+  type: 'COMPLETE_TODO_SAGA',
   todo,
 });
 
@@ -13,7 +13,7 @@ const setVisibilityFilter = filter => ({
   filter,
 });
 
-const updateTodoAction = todo => ({
+const completeTodoAction = todo => ({
   type: 'UPDATE_TODO',
   todo,
 });
@@ -33,12 +33,21 @@ const deleteTodoSaga = todo => ({
   todo,
 });
 
+const editTodoSaga = (todo, text) => ({
+  type: 'EDIT_TODO_SAGA',
+  todo: {
+    ...todo,
+    text,
+  },
+});
+
 export {
   addTodoSaga,
   completeTodoSaga,
   setVisibilityFilter,
-  updateTodoAction,
+  completeTodoAction,
   addTodo,
   getAllTodos,
   deleteTodoSaga,
+  editTodoSaga,
 };
