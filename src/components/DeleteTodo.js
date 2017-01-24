@@ -4,9 +4,10 @@ const DeleteTodo = ({ onClick }) =>
   <button
     className="delete"
     onClick={onClick}
-  >
-    X
-  </button>;
+    dangerouslySetInnerHTML={{
+      __html: '&#10005',
+    }}
+  />;
 
 DeleteTodo.propTypes = {
   onClick: PropTypes.func,

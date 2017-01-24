@@ -48,11 +48,18 @@ button {
   text-align: center;
 }
 
+.incomplete {
+  background-color: rgb(250, 180, 64);
+  width: 20px;
+  padding: 2px;
+  text-align: center;
+}
+
 .edit {
   background-color: rgb(250, 180, 64);
 }
 
 table {
   margin: 10px auto 10px auto;
-  border-spacing: 5px;
+  border-spacing: 3px;
 }
