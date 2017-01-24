@@ -41,6 +41,13 @@ button {
   text-align: center;
 }
 
+.complete {
+  background-color: rgb(97, 228, 118);
+  width: 20px;
+  padding: 2px;
+  text-align: center;
+}
+
 .edit {
   background-color: rgb(250, 180, 64);
 }

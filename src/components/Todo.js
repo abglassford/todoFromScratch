@@ -3,13 +3,11 @@ import React, { PropTypes, Component } from 'react';
 
 class Todo extends Component {
   static propTypes = {
-    completeTodo: PropTypes.func,
     text: PropTypes.string,
     completed: PropTypes.bool,
   }
 
   static defaultProps = {
-    completeTodo: () => {},
     text: '',
     completed: false,
   }
@@ -22,9 +20,11 @@ class Todo extends Component {
   }
 
   edit() {
-    this.setState({
-      editable: true,
-    });
+    if (!this.props.completed) {
+      this.setState({
+        editable: true,
+      });
+    }
   }
 
   render() {
@@ -33,7 +33,6 @@ class Todo extends Component {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            this.props.completeTodo();
             this.setState({
               editable: false,
             });

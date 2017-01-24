@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { updateTodoSaga, deleteTodoSaga } from '../actions';
+import { completeTodoSaga, deleteTodoSaga } from '../actions';
 import Todo from './Todo';
 import DeleteTodo from './DeleteTodo';
 import CompleteTodo from './CompleteTodo';
@@ -49,19 +49,17 @@ class TodoList extends Component {
               <td>
                 <Todo
                   text={todo.text}
-                  completeTodo={() => this.props.dispatch(updateTodoSaga(todo))}
                   completed={todo.completed}
+                />
+              </td>
+              <td>
+                <CompleteTodo
+                  onClick={() => this.props.dispatch(completeTodoSaga(todo))}
                 />
               </td>
               <td>
                 <DeleteTodo
                   onClick={() => this.props.dispatch(deleteTodoSaga(todo))}
-                />
-              </td>
-              <td>
-                <CompleteTodo
-                  onClick={() => this.props.dispatch(updateTodoSaga(todo))}
-                  text={"&#x2713"}
                 />
               </td>
             </tr>,

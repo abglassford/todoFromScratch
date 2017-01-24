@@ -3,7 +3,7 @@ const addTodoSaga = text => ({
   text,
 });
 
-const updateTodoSaga = todo => ({
+const completeTodoSaga = todo => ({
   type: 'UPDATE_TODO_SAGA',
   todo,
 });
@@ -35,7 +35,7 @@ const deleteTodoSaga = todo => ({
 
 export {
   addTodoSaga,
-  updateTodoSaga,
+  completeTodoSaga,
   setVisibilityFilter,
   updateTodoAction,
   addTodo,
