@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 
-const Link = ({ active, filter, onClick, text }) => {
+const Link = ({ active, onClick, text }) => {
   if (active) {
     return (<button
       style={{

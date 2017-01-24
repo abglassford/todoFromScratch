@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { updateTodoSaga } from '../actions';
 import Todo from './Todo';
+import DeleteTodo from './DeleteTodo';
+import EditTodo from './EditTodo';
 
 const getTodos = (todos, filter) => {
   switch (filter) {
@@ -38,16 +40,33 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.todos.map(todo =>
-          <Todo
-            key={todo.id}
-            text={todo.text}
-            onClick={() => this.props.dispatch(updateTodoSaga(todo))}
-            completed={todo.completed}
-          />,
-        )}
-      </div>
+      <table>
+        <tbody>
+          {this.props.todos.map(todo =>
+            <tr
+              key={todo.id}
+            >
+              <td>
+                <Todo
+                  text={todo.text}
+                  onClick={() => this.props.dispatch(updateTodoSaga(todo))}
+                  completed={todo.completed}
+                />
+              </td>
+              <td>
+                <DeleteTodo
+                  onClick={() => console.log('delete')}
+                />
+              </td>
+              <td>
+                <EditTodo
+                  onClick={() => console.log('edit')}
+                />
+              </td>
+            </tr>,
+          )}
+        </tbody>
+      </table>
     );
   }
 }

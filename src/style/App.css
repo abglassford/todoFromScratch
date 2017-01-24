@@ -33,3 +33,19 @@ button {
 :focus {
   outline: none;
 }
+
+.delete{
+  background-color: rgb(228, 97, 97);
+  width: 20px;
+  padding: 2px;
+  text-align: center;
+}
+
+.edit {
+  background-color: rgb(250, 180, 64);
+}
+
+table {
+  margin: 10px auto 10px auto;
+  border-spacing: 5px;
+}

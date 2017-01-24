@@ -19,9 +19,7 @@ const toggleTodo = (action) => {
     ...action.todo,
     completed: !completed,
   })
-  .then((data) => {
-    return data;
-  });
+  .then(data => data);
 };
 
 export {

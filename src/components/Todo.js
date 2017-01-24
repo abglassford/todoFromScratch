@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react';
 
+
 const Todo = ({ onClick, text, completed }) =>
-  <p
+  <a
+    className="todo"
     onClick={onClick}
     style={{
       textDecoration: completed ? 'line-through' : 'none',
     }}
   >
     {text}
-  </p>;
+  </a>;
 
 Todo.propTypes = {
   onClick: PropTypes.func,

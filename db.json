@@ -7,13 +7,43 @@
     },
     {
       "text": "Sleep",
-      "completed": true,
+      "completed": false,
       "id": "2"
     },
     {
       "text": "Code",
-      "completed": true,
+      "completed": false,
       "id": "3"
+    },
+    {
+      "text": "eat",
+      "completed": false,
+      "id": "58b34f96-5a31-44b0-a931-13ae03ff148a"
+    },
+    {
+      "text": "slee",
+      "completed": false,
+      "id": "5129d36a-f090-4905-952d-0a1e7ce0713f"
+    },
+    {
+      "text": "Learn React",
+      "completed": false,
+      "id": "fc6d931e-6669-4cce-b468-453de42ba146"
+    },
+    {
+      "text": "Learn Redux",
+      "completed": true,
+      "id": "ba012dbd-f1af-4b87-9f3f-27eec4074d74"
+    },
+    {
+      "text": "Learn Saga",
+      "completed": true,
+      "id": "997371d0-0df6-4e0e-9170-3b4cfbc54c3d"
+    },
+    {
+      "text": "Go to bed you sleepy person",
+      "completed": false,
+      "id": "c09e1a07-5b74-436c-988d-eaf2961faa80"
     }
   ]
 }
