@@ -27,6 +27,7 @@ const todoApp = (state = initialState, action) => {
         }),
       });
     case 'SET_VISIBILITY_FILTER':
+      console.log(action);
       return Object.assign({}, state, { visibilityFilter: action.filter });
     default:
       return state;

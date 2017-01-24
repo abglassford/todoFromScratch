@@ -1,24 +1,23 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Filter from './Filter';
-import { setVisibilityFilter } from '../actions';
+import FilterLink from './FilterLink';
 
 
-const Footer = ({ dispatch }) => (
-  <div>
-    <Filter
-      filter="All"
-      onClick={() => dispatch(setVisibilityFilter('SHOW_ALL'))}
+const Footer = () => (
+  <p>
+    <FilterLink
+      filter="SHOW_ALL"
+      text="All"
     />
-    <Filter
-      filter="Active"
-      onClick={() => dispatch(setVisibilityFilter('SHOW_ACTIVE'))}
+    <FilterLink
+      filter="SHOW_ACTIVE"
+      text="Active"
     />
-    <Filter
-      filter="Completed"
-      onClick={() => dispatch(setVisibilityFilter('SHOW_COMPLETED'))}
+    <FilterLink
+      filter="SHOW_COMPLETED"
+      text="Completed"
     />
-  </div>
+  </p>
 );
 
 Footer.propTypes = {

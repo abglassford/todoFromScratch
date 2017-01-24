@@ -7,12 +7,12 @@
     },
     {
       "text": "Sleep",
-      "completed": false,
+      "completed": true,
       "id": "2"
     },
     {
       "text": "Code",
-      "completed": false,
+      "completed": true,
       "id": "3"
     }
   ]
