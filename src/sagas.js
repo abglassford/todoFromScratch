@@ -18,8 +18,9 @@ export function* toggleSaga(action) {
   yield put(updateTodo(result.data));
 }
 
-export function* deleteSaga() {
-  yield console.log('hey');
+export function* deleteSaga(action) {
+  yield call(deleteTodo, action);
+  yield getSaga();
 }
 
 export function* watchGetSaga() {
