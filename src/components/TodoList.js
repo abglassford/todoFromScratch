@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateTodoSaga, deleteTodoSaga } from '../actions';
 import Todo from './Todo';
 import DeleteTodo from './DeleteTodo';
+import CompleteTodo from './CompleteTodo';
 
 const getTodos = (todos, filter) => {
   switch (filter) {
@@ -48,13 +49,19 @@ class TodoList extends Component {
               <td>
                 <Todo
                   text={todo.text}
-                  onClick={() => this.props.dispatch(updateTodoSaga(todo))}
+                  completeTodo={() => this.props.dispatch(updateTodoSaga(todo))}
                   completed={todo.completed}
                 />
               </td>
               <td>
                 <DeleteTodo
                   onClick={() => this.props.dispatch(deleteTodoSaga(todo))}
+                />
+              </td>
+              <td>
+                <CompleteTodo
+                  onClick={() => this.props.dispatch(updateTodoSaga(todo))}
+                  text={"&#x2713"}
                 />
               </td>
             </tr>,

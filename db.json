@@ -7,13 +7,13 @@
     },
     {
       "text": "Code",
-      "completed": false,
+      "completed": true,
       "id": "d9ec8128-60be-46d6-ac06-bc67c8328b5b"
     },
     {
-      "text": "Eat",
+      "text": "EAT",
       "completed": false,
-      "id": "f40d3d59-0a40-4cf2-9374-4c84091e5301"
+      "id": "21c22363-7cb5-47ac-95e3-66bc6f37d375"
     }
   ]
 }
