@@ -54,6 +54,11 @@ const filter = {
   filter: 'SHOW_ACTIVE',
 };
 
+const deleteTodo = {
+  type: 'DELETE_TODO_SAGA',
+  todo: 'taco',
+};
+
 describe('todoApp', () => {
   it('should return an object no matter what case is passed', () => {
     assert.typeOf(todoApp({}, {}), 'object');

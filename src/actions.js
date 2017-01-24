@@ -13,7 +13,7 @@ const setVisibilityFilter = filter => ({
   filter,
 });
 
-const updateTodo = todo => ({
+const updateTodoAction = todo => ({
   type: 'UPDATE_TODO',
   todo,
 });
@@ -37,7 +37,7 @@ export {
   addTodoSaga,
   updateTodoSaga,
   setVisibilityFilter,
-  updateTodo,
+  updateTodoAction,
   addTodo,
   getAllTodos,
   deleteTodoSaga,
