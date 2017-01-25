@@ -3,32 +3,12 @@
     {
       "text": "Eat",
       "completed": false,
-      "id": "69b1d922-859d-4b36-abaf-c8bf6edb4b46"
+      "id": "b84752f4-bc72-48c1-895b-0ca986a4cecc"
     },
     {
       "text": "Sleep",
       "completed": false,
-      "id": "13fb6677-921b-4603-828f-611d9678bfd6"
-    },
-    {
-      "text": "Code",
-      "completed": false,
-      "id": "74ad9acc-c2c2-47c4-b712-af50759eea25"
-    },
-    {
-      "text": "Learn React",
-      "completed": false,
-      "id": "b248ba75-bb18-4e4b-bfc6-e8bac0a515b4"
-    },
-    {
-      "text": "Eat more",
-      "completed": false,
-      "id": "e8855b54-eae8-445e-9d33-fe5b3c1146af"
-    },
-    {
-      "text": "Learn to type",
-      "completed": false,
-      "id": "b7106755-da7d-4a94-8e43-e50a533a0dbb"
+      "id": "dc6d1abd-1ff1-44fb-8cad-21336047463e"
     }
   ]
 }

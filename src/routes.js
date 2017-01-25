@@ -13,13 +13,13 @@ const postTodo = text => axios.post(url, {
 const getTodos = () => axios.get(url)
   .then(data => data.data);
 
-const updateTodo = (action) => {
+const completeTodo = (action) => {
   const completed = action.todo.completed;
   return axios.put(`${url}/${action.todo.id}`, {
     ...action.todo,
     completed: !completed,
   })
-  .then(data => data);
+  .then(data => data.data);
 };
 
 const deleteTodo = (action) => {
@@ -41,7 +41,7 @@ const editTodo = (action) => {
 export {
   postTodo,
   getTodos,
-  updateTodo,
+  completeTodo,
   deleteTodo,
   editTodo,
 };
