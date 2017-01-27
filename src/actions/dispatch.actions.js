@@ -20,14 +20,14 @@ const dispatchAddTodo = text => ({
   text,
 });
 
-const dispatchCompleteTodo = todo => ({
-  type: 'DISPATCH_COMPLETE_TODO',
+const completeTodo = todo => ({
+  type: 'COMPLETE_TODO',
   todo,
 });
 
 export {
   dispatchAddTodo,
-  dispatchCompleteTodo,
+  completeTodo,
   getTodos,
   deleteTodo,
   dispatchRenameTodo,

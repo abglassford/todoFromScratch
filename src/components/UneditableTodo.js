@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import DeleteTodo from './DeleteTodo';
 import CompleteTodo from './CompleteTodo';
 
-const UneditableTodo = ({ completed, completeTodo, onDelete, text, enableEdit }) => (
+const UneditableTodo = ({ completed, onComplete, onDelete, text, enableEdit }) => (
   <tr>
     <td>
       <a
@@ -17,7 +17,7 @@ const UneditableTodo = ({ completed, completeTodo, onDelete, text, enableEdit })
     </td>
     <td>
       <CompleteTodo
-        onClick={completeTodo}
+        onComplete={onComplete}
         completed={completed}
       />
       <DeleteTodo
@@ -29,7 +29,7 @@ const UneditableTodo = ({ completed, completeTodo, onDelete, text, enableEdit })
 
 UneditableTodo.propTypes = {
   text: PropTypes.string,
-  completeTodo: PropTypes.func,
+  onComplete: PropTypes.func,
   onDelete: PropTypes.func,
   enableEdit: PropTypes.func,
   completed: PropTypes.bool,
@@ -37,7 +37,7 @@ UneditableTodo.propTypes = {
 
 UneditableTodo.defaultProps = {
   text: '',
-  completeTodo: () => {},
+  onComplete: () => {},
   onDelete: () => {},
   enableEdit: () => {},
   completed: false,

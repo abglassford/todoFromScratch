@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { dispatchCompleteTodo, deleteTodo, dispatchRenameTodo, getTodos } from '../actions/dispatch.actions';
+import { completeTodo, deleteTodo, dispatchRenameTodo, getTodos } from '../actions/dispatch.actions';
 import { getVisibleTodos } from '../helper';
 import Todo from './Todo';
 
@@ -32,7 +32,7 @@ class TodoList extends Component {
               text={todo.text}
               completed={todo.completed}
               renameTodo={text => this.props.dispatch(dispatchRenameTodo(todo, text))}
-              completeTodo={() => this.props.dispatch(dispatchCompleteTodo(todo))}
+              onComplete={() => this.props.dispatch(completeTodo(todo))}
               onDelete={() => this.props.dispatch(deleteTodo(todo))}
             />,
           )}

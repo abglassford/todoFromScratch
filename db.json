@@ -2,8 +2,13 @@
   "todos": [
     {
       "text": "eat",
-      "completed": false,
+      "completed": true,
       "id": "44a47c32-4f84-4c83-9365-1c9696872521"
+    },
+    {
+      "text": "sleep",
+      "completed": false,
+      "id": "72153c5c-190b-4a23-b028-7ca95f13d63e"
     }
   ]
 }

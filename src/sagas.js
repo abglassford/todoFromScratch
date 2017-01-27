@@ -36,7 +36,7 @@ export function* watchAddSaga() {
 }
 
 export function* watchComplete() {
-  yield takeEvery('DISPATCH_COMPLETE_TODO', complete);
+  yield takeEvery('COMPLETE_TODO', complete);
 }
 
 export function* watchDeleteSaga() {

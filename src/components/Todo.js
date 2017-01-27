@@ -6,7 +6,7 @@ class Todo extends Component {
   static propTypes = {
     text: PropTypes.string,
     completed: PropTypes.bool,
-    completeTodo: PropTypes.func,
+    onComplete: PropTypes.func,
     onDelete: PropTypes.func,
     renameTodo: PropTypes.func,
   }
@@ -14,7 +14,7 @@ class Todo extends Component {
   static defaultProps = {
     text: '',
     completed: false,
-    completeTodo: () => {},
+    onComplete: () => {},
     onDelete: () => {},
     renameTodo: () => {},
   }
@@ -60,7 +60,7 @@ class Todo extends Component {
     }
     return (
       <Uneditabletodo
-        completeTodo={this.props.completeTodo}
+        onComplete={this.props.onComplete}
         text={this.props.text}
         completed={this.props.completed}
         onDelete={this.props.onDelete}

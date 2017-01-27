@@ -27,7 +27,7 @@ describe('addSaga', () => {
 });
 
 describe('complete', () => {
-  const action = dispatch.dispatchCompleteTodo();
+  const action = dispatch.completeTodo();
   const iterator = sagas.complete(action);
   it('must call first yield of generator function', () => {
     expect(iterator.next().value).to.deep.equal(call(routes.completeTodo, action));

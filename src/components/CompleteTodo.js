@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const CompleteTodo = ({ onClick, completed }) => {
+const CompleteTodo = ({ onComplete, completed }) => {
   if (!completed) {
     return (
       <button
         className="incomplete"
-        onClick={onClick}
+        onClick={onComplete}
         dangerouslySetInnerHTML={{
           __html: '?',
         }}
@@ -16,7 +16,7 @@ const CompleteTodo = ({ onClick, completed }) => {
   return (
     <button
       className="complete"
-      onClick={onClick}
+      onClick={onComplete}
       dangerouslySetInnerHTML={{
         __html: '&#x2713',
       }}
@@ -26,12 +26,12 @@ const CompleteTodo = ({ onClick, completed }) => {
 
 CompleteTodo.propTypes = {
   completed: PropTypes.bool,
-  onClick: PropTypes.func,
+  onComplete: PropTypes.func,
 };
 
 CompleteTodo.defaultProps = {
   completed: false,
-  onClick: () => {},
+  onComplete: () => {},
 };
 
 export default CompleteTodo;
