@@ -1,7 +1,7 @@
 import { assert, expect } from 'chai';
 import uuidv1 from 'uuid';
 import todoApp from '../reducers';
-import { completeTodoAction, addTodo, getAllTodos, setVisibilityFilter } from '../actions';
+import * as set from '../actions/set.actions';
 
 const testState = {
   visibilityFilter: 'SHOW_ALL',
@@ -36,11 +36,11 @@ describe('todoApp', () => {
       completed: false,
       id: uuidv1(),
     };
-    const state = todoApp(testState, addTodo(todo));
+    const state = todoApp(testState, set.setAddTodo(todo));
     expect(state.todos).to.include(todo);
   });
   it('should get all of the todos in state', () => {
-    const state = todoApp(testState, getAllTodos(testState.todos));
+    const state = todoApp(testState, set.setGetTodos(testState.todos));
     expect(state.todos).to.deep.equal(testState.todos);
   });
   it('should update the selected todo to completed', () => {
@@ -49,11 +49,11 @@ describe('todoApp', () => {
       completed: true,
       id: '3',
     };
-    const state = todoApp(testState, completeTodoAction(todo));
+    const state = todoApp(testState, set.setComplete(todo));
     expect(state.todos[2].completed).to.equal(true);
   });
   it('should update the visibility filter when prompted', () => {
-    const state = todoApp(testState, setVisibilityFilter('SHOW_ACTIVE'));
+    const state = todoApp(testState, set.setVisibilityFilter('SHOW_ACTIVE'));
     expect(state.visibilityFilter).to.equal('SHOW_ACTIVE');
   });
 });

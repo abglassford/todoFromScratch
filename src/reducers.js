@@ -5,11 +5,11 @@ const initialState = {
 
 const todoApp = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_ALL_TODOS':
+    case 'SET_GET_TODOS':
       return Object.assign({}, state, {
         todos: action.todos,
       });
-    case 'ADD_TODO':
+    case 'SET_ADD_TODO':
       return Object.assign({}, state, {
         todos: [...state.todos, {
           text: action.todo.text,
@@ -17,7 +17,7 @@ const todoApp = (state = initialState, action) => {
           id: action.todo.id,
         }],
       });
-    case 'UPDATE_TODO':
+    case 'SET_COMPLETE_TODO':
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {
           if (todo.id === action.todo.id) {

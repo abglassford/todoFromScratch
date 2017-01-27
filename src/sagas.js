@@ -1,43 +1,42 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { postTodo, getTodos, completeTodo, deleteTodo, editTodo } from './routes';
-import { completeTodoAction, addTodo,
-getAllTodos } from './actions';
+import { addTodo, getTodos, completeTodo, deleteTodo, renameTodo } from './routes';
+import { setComplete, setAddTodo, setGetTodos } from './actions/set.actions';
 
-export function* getSaga() {
+export function* setTodos() {
   const result = yield call(getTodos);
-  yield put(getAllTodos(result));
+  yield put(setGetTodos(result));
 }
 
 export function* addSaga(action) {
-  const result = yield call(postTodo, action.text);
-  yield put(addTodo(result));
+  const result = yield call(addTodo, action.text);
+  yield put(setAddTodo(result));
 }
 
-export function* completeSaga(action) {
+export function* complete(action) {
   const result = yield call(completeTodo, action);
-  yield put(completeTodoAction(result));
+  yield put(setComplete(result));
 }
 
 export function* deleteSaga(action) {
   yield call(deleteTodo, action);
-  yield getSaga();
+  yield call(setTodos);
 }
 
 export function* editSaga(action) {
-  yield call(editTodo, action);
-  yield getSaga();
+  yield call(renameTodo, action);
+  yield setTodos();
 }
 
 export function* watchGetSaga() {
-  yield takeEvery('GET_TODOS', getSaga);
+  yield takeEvery('DISPATCH_GET_TODOS', setTodos);
 }
 
 export function* watchAddSaga() {
-  yield takeEvery('ADD_TODO_SAGA', addSaga);
+  yield takeEvery('DISPATCH_ADD_TODO', addSaga);
 }
 
-export function* watchToggleSaga() {
-  yield takeEvery('COMPLETE_TODO_SAGA', completeSaga);
+export function* watchComplete() {
+  yield takeEvery('DISPATCH_COMPLETE_TODO', complete);
 }
 
 export function* watchDeleteSaga() {
@@ -45,13 +44,13 @@ export function* watchDeleteSaga() {
 }
 
 export function* watchEditSaga() {
-  yield takeEvery('EDIT_TODO_SAGA', editSaga);
+  yield takeEvery('DISPATCH_RENAME_TODO', editSaga);
 }
 
 export default function* rootSaga() {
   yield [
     watchAddSaga(),
-    watchToggleSaga(),
+    watchComplete(),
     watchGetSaga(),
     watchDeleteSaga(),
     watchEditSaga(),

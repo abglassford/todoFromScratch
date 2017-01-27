@@ -1,38 +1,49 @@
 import { put, call } from 'redux-saga/effects';
 import { expect } from 'chai';
-import { getTodos, postTodo, completeTodo } from '../routes';
-import { getAllTodos, addTodoSaga, addTodo, completeTodoSaga, setVisibilityFilter, completeTodoAction, deleteTodoSaga, editTodoSaga } from '../actions';
-import { getSaga, addSaga, completeSaga, deleteSaga, editSaga } from '../sagas';
+import * as routes from '../routes';
+import * as set from '../actions/set.actions';
+import * as dispatch from '../actions/dispatch.actions';
+import * as sagas from '../sagas';
 
-
-describe('getSaga', () => {
-  const iterator = getSaga();
+describe('setTodos', () => {
+  const iterator = sagas.setTodos();
   it('must call first yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(call(getTodos));
+    expect(iterator.next().value).to.deep.equal(call(routes.getTodos));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(getAllTodos()));
+    expect(iterator.next().value).to.deep.equal(put(set.setGetTodos()));
   });
 });
 
 describe('addSaga', () => {
-  const action = addTodoSaga();
-  const iterator = addSaga(action);
+  const action = dispatch.dispatchAddTodo();
+  const iterator = sagas.addSaga(action);
   it('must call first yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(call(postTodo, action.text));
+    expect(iterator.next().value).to.deep.equal(call(routes.addTodo, action.text));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(addTodo()));
+    expect(iterator.next().value).to.deep.equal(put(set.setAddTodo()));
   });
 });
 
-describe('completeSaga', () => {
-  const action = completeTodoSaga();
-  const iterator = completeSaga(action);
+describe('complete', () => {
+  const action = dispatch.dispatchCompleteTodo();
+  const iterator = sagas.complete(action);
   it('must call first yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(call(completeTodo, action));
+    expect(iterator.next().value).to.deep.equal(call(routes.completeTodo, action));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(completeTodoAction()));
+    expect(iterator.next().value).to.deep.equal(put(set.setComplete()));
+  });
+});
+
+describe('deleteSaga', () => {
+  const action = dispatch.dispatchDeleteTodo();
+  const iterator = sagas.deleteSaga(action);
+  it('must call first yield of generator function', () => {
+    expect(iterator.next().value).to.deep.equal(call(routes.deleteTodo, action));
+  });
+  it('must call setTodos()', () => {
+    expect(iterator.next().value).to.deep.equal(call(sagas.setTodos));
   });
 });

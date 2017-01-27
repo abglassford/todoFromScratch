@@ -3,7 +3,7 @@ import uuidv1 from 'uuid';
 
 const url = 'http://localhost:8888/todos';
 
-const postTodo = text => axios.post(url, {
+const addTodo = text => axios.post(url, {
   text,
   completed: false,
   id: uuidv1(),
@@ -28,7 +28,7 @@ const deleteTodo = (action) => {
   .then(data => data);
 };
 
-const editTodo = (action) => {
+const renameTodo = (action) => {
   const id = action.todo.id;
   const text = action.todo.text;
   return axios.put(`${url}/${id}`, {
@@ -39,9 +39,9 @@ const editTodo = (action) => {
 };
 
 export {
-  postTodo,
+  addTodo,
   getTodos,
   completeTodo,
   deleteTodo,
-  editTodo,
+  renameTodo,
 };

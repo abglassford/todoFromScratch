@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodoSaga } from '../actions';
+import { dispatchAddTodo, dispatchGetTodos } from '../actions/dispatch.actions';
 import TodoList from './TodoList';
 
 class TodoForm extends Component {
@@ -27,7 +27,7 @@ class TodoForm extends Component {
       const value = this.state.value;
       const dispatch = this.props.dispatch;
       if (value.trim()) {
-        dispatch(addTodoSaga(value));
+        dispatch(dispatchAddTodo(value));
         this.setState({ value: '' });
       }
     };
@@ -43,7 +43,7 @@ class TodoForm extends Component {
           <button>Add Todo</button>
         </form>
         <TodoList
-          getTodos={() => this.props.dispatch({ type: 'GET_TODOS' })}
+          getTodos={() => this.props.dispatch(dispatchGetTodos())}
         />
       </div>
     );

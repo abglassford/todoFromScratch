@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import DeleteTodo from './DeleteTodo';
-import CompleteTodo from './CompleteTodo';
+import EditableTodo from './EditableTodo';
+import Uneditabletodo from './UneditableTodo';
 
 
 class Todo extends Component {
@@ -9,7 +9,6 @@ class Todo extends Component {
     completed: PropTypes.bool,
     completeTodo: PropTypes.func,
     deleteTodo: PropTypes.func,
-    editTodo: PropTypes.func,
   }
 
   static defaultProps = {
@@ -17,7 +16,7 @@ class Todo extends Component {
     completed: false,
     completeTodo: () => {},
     deleteTodo: () => {},
-    editTodo: () => {},
+    renameTodo: () => {},
   }
 
   constructor(props) {
@@ -28,70 +27,22 @@ class Todo extends Component {
     };
   }
 
-  edit() {
-    if (!this.props.completed) {
-      this.setState({
-        editable: true,
-      });
-    }
-  }
-
   render() {
     if (this.state.editable) {
       return (
-        <tr>
-          <td>
-            <input
-              className="todoEditInput"
-              defaultValue={this.props.text}
-              onChange={(e) => {
-                this.setState({
-                  value: e.target.value,
-                });
-              }}
-            />
-          </td>
-          <td>
-            <button
-              className="submitEdit"
-              dangerouslySetInnerHTML={{
-                __html: '&#x2713',
-              }}
-              onClick={(e) => {
-                e.preventDefault();
-                this.props.editTodo(this.state.value);
-                this.setState({
-                  editable: false,
-                });
-              }}
-            />
-          </td>
-        </tr>
+        <EditableTodo
+          text={this.props.text}
+          parent={this}
+        />
       );
     }
     return (
-      <tr>
-        <td>
-          <a
-            className="todo"
-            onClick={() => this.edit()}
-            style={{
-              textDecoration: this.props.completed ? 'line-through' : 'none',
-            }}
-          >
-            {this.props.text}
-          </a>
-        </td>
-        <td>
-          <CompleteTodo
-            onClick={this.props.completeTodo}
-            completed={this.props.completed}
-          />
-          <DeleteTodo
-            onClick={this.props.deleteTodo}
-          />
-        </td>
-      </tr>
+      <Uneditabletodo
+        completeTodo={this.props.completeTodo}
+        text={this.props.text}
+        completed={this.props.completed}
+        deleteTodo={this.props.deleteTodo}
+      />
     );
   }
 }
