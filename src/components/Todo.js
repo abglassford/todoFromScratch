@@ -7,7 +7,7 @@ class Todo extends Component {
     text: PropTypes.string,
     completed: PropTypes.bool,
     completeTodo: PropTypes.func,
-    deleteTodo: PropTypes.func,
+    onDelete: PropTypes.func,
     renameTodo: PropTypes.func,
   }
 
@@ -15,7 +15,7 @@ class Todo extends Component {
     text: '',
     completed: false,
     completeTodo: () => {},
-    deleteTodo: () => {},
+    onDelete: () => {},
     renameTodo: () => {},
   }
 
@@ -63,7 +63,7 @@ class Todo extends Component {
         completeTodo={this.props.completeTodo}
         text={this.props.text}
         completed={this.props.completed}
-        deleteTodo={this.props.deleteTodo}
+        onDelete={this.props.onDelete}
         enableEdit={() => this.enableEdit()}
       />
     );

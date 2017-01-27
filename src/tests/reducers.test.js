@@ -36,11 +36,11 @@ describe('todoApp', () => {
       completed: false,
       id: uuidv1(),
     };
-    const state = todoApp(testState, set.setAddTodo(todo));
+    const state = todoApp(testState, set.addTodo(todo));
     expect(state.todos).to.include(todo);
   });
   it('should get all of the todos in state', () => {
-    const state = todoApp(testState, set.setGetTodos(testState.todos));
+    const state = todoApp(testState, set.replaceTodos(testState.todos));
     expect(state.todos).to.deep.equal(testState.todos);
   });
   it('should update the selected todo to completed', () => {

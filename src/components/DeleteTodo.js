@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 
-const DeleteTodo = ({ onClick }) =>
+const DeleteTodo = ({ onDelete }) =>
   <button
     className="delete"
-    onClick={onClick}
+    onClick={onDelete}
     dangerouslySetInnerHTML={{
       __html: '&#10005',
     }}

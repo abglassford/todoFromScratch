@@ -8,10 +8,10 @@ import * as sagas from '../sagas';
 describe('setTodos', () => {
   const iterator = sagas.setTodos();
   it('must call first yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(call(routes.getTodos));
+    expect(iterator.next().value).to.deep.equal(call(routes.getAllTodos));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(set.setGetTodos()));
+    expect(iterator.next().value).to.deep.equal(put(set.replaceTodos()));
   });
 });
 
@@ -19,10 +19,10 @@ describe('addSaga', () => {
   const action = dispatch.dispatchAddTodo();
   const iterator = sagas.addSaga(action);
   it('must call first yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(call(routes.addTodo, action.text));
+    expect(iterator.next().value).to.deep.equal(call(routes.postTodo, action.text));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(set.setAddTodo()));
+    expect(iterator.next().value).to.deep.equal(put(set.addTodo()));
   });
 });
 
@@ -38,7 +38,7 @@ describe('complete', () => {
 });
 
 describe('deleteSaga', () => {
-  const action = dispatch.dispatchDeleteTodo();
+  const action = dispatch.deleteTodo();
   const iterator = sagas.deleteSaga(action);
   it('must call first yield of generator function', () => {
     expect(iterator.next().value).to.deep.equal(call(routes.deleteTodo, action));

@@ -1,9 +1,9 @@
-const dispatchGetTodos = () => ({
-  type: 'DISPATCH_GET_TODOS',
+const getTodos = () => ({
+  type: 'GET_TODOS',
 });
 
-const dispatchDeleteTodo = todo => ({
-  type: 'DELETE_TODO_SAGA',
+const deleteTodo = todo => ({
+  type: 'DELETE_TODO',
   todo,
 });
 
@@ -28,7 +28,7 @@ const dispatchCompleteTodo = todo => ({
 export {
   dispatchAddTodo,
   dispatchCompleteTodo,
-  dispatchGetTodos,
-  dispatchDeleteTodo,
+  getTodos,
+  deleteTodo,
   dispatchRenameTodo,
 };

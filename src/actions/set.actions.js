@@ -8,19 +8,19 @@ const setComplete = todo => ({
   todo,
 });
 
-const setAddTodo = todo => ({
-  type: 'SET_ADD_TODO',
+const addTodo = todo => ({
+  type: 'ADD_TODO',
   todo,
 });
 
-const setGetTodos = todos => ({
-  type: 'SET_GET_TODOS',
+const replaceTodos = todos => ({
+  type: 'REPLACE_TODOS',
   todos,
 });
 
 export {
   setVisibilityFilter,
   setComplete,
-  setAddTodo,
-  setGetTodos,
+  addTodo,
+  replaceTodos,
 };

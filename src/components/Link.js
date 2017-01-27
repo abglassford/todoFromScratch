@@ -3,24 +3,27 @@ import React, { PropTypes } from 'react';
 
 const Link = ({ active, onClick, text }) => {
   if (active) {
-    return (<button
-      style={{
-        backgroundColor: 'rgb(228, 97, 97)',
-      }}
+    return (
+      <button
+        style={{
+          backgroundColor: 'rgb(228, 97, 97)',
+        }}
+        onClick={onClick}
+      >
+        {text}
+      </button>
+    );
+  }
+  return (
+    <button
       onClick={onClick}
     >
       {text}
-    </button>);
-  }
-  return (<button
-    onClick={onClick}
-  >
-    {text}
-  </button>);
+    </button>
+  );
 };
 
 Link.propTypes = {
-  filter: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
   active: PropTypes.bool,
@@ -28,7 +31,6 @@ Link.propTypes = {
 
 Link.defaultProps = {
   text: '',
-  filter: '',
   onClick: () => {},
   active: false,
 };
