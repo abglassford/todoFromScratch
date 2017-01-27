@@ -1,19 +1,14 @@
 {
   "todos": [
     {
-      "text": "eat",
-      "completed": true,
-      "id": "302b8f62-8d60-4901-839d-0ea2215da49f"
-    },
-    {
       "text": "sleep",
       "completed": false,
       "id": "db5ac487-7b58-49b3-8585-92f0cf0092e0"
     },
     {
-      "text": "code more",
+      "text": "eat",
       "completed": false,
-      "id": "c718d099-5feb-42c1-8ae5-c7d577266c3a"
+      "id": "f174df62-c7f2-4931-a032-48d59f5353f7"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { dispatchCompleteTodo, dispatchDeleteTodo, dispatchRenameTodo } from '../actions/dispatch.actions';
+import { dispatchCompleteTodo, dispatchDeleteTodo, dispatchRenameTodo, dispatchGetTodos } from '../actions/dispatch.actions';
 import Todo from './Todo';
 
 
@@ -25,16 +25,14 @@ class TodoList extends Component {
   static propTypes = {
     dispatch: PropTypes.func,
     todos: PropTypes.array,
-    getTodos: PropTypes.func,
   }
   static defaultProps = {
     dispatch: () => {},
     todos: [],
-    getTodos: () => {},
   }
 
   componentWillMount() {
-    this.props.getTodos();
+    this.props.dispatch(dispatchGetTodos());
   }
 
   render() {

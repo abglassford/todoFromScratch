@@ -2,20 +2,12 @@ import React, { PropTypes } from 'react';
 import DeleteTodo from './DeleteTodo';
 import CompleteTodo from './CompleteTodo';
 
-const edit = () => {
-  if (!this.props.completed) {
-    this.setState({
-      editable: true,
-    });
-  }
-}
-
-const Uneditabletodo = ({ text, completeTodo, completed, deleteTodo, edit }) => (
+const UneditableTodo = ({ completed, completeTodo, deleteTodo, text, editTodo }) => (
   <tr>
     <td>
       <a
         className="todo"
-        onClick={() => edit}
+        onClick={() => editTodo()}
         style={{
           textDecoration: completed ? 'line-through' : 'none',
         }}
@@ -35,18 +27,20 @@ const Uneditabletodo = ({ text, completeTodo, completed, deleteTodo, edit }) => 
   </tr>
 );
 
-Uneditabletodo.propTypes = {
+UneditableTodo.propTypes = {
   text: PropTypes.string,
   completeTodo: PropTypes.func,
   deleteTodo: PropTypes.func,
+  editTodo: PropTypes.func,
   completed: PropTypes.bool,
 };
 
-Uneditabletodo.defaultProps = {
+UneditableTodo.defaultProps = {
   text: '',
   completeTodo: () => {},
   deleteTodo: () => {},
+  editTodo: () => {},
   completed: false,
 };
 
-export default Uneditabletodo;
+export default UneditableTodo;

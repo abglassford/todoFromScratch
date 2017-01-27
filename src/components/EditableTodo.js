@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
+import { dispatchCompleteTodo, dispatchDeleteTodo, dispatchRenameTodo } from '../actions/dispatch.actions';
 
-const EditableTodo = ({ text, parent }) => (
+const EditableTodo = ({ text }) => (
   <tr>
     <td>
       <input
@@ -21,7 +22,7 @@ const EditableTodo = ({ text, parent }) => (
         }}
         onClick={(e) => {
           e.preventDefault();
-          parent.props.renameTodo(parent.state.value);
+          dispatchRenameTodo();
           parent.setState({
             editable: false,
           });

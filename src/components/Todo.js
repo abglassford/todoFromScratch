@@ -27,6 +27,14 @@ class Todo extends Component {
     };
   }
 
+  edit() {
+    if (!this.props.completed) {
+      this.setState({
+        editable: true,
+      });
+    }
+  }
+
   render() {
     if (this.state.editable) {
       return (
@@ -42,6 +50,7 @@ class Todo extends Component {
         text={this.props.text}
         completed={this.props.completed}
         deleteTodo={this.props.deleteTodo}
+        editTodo={() => this.edit()}
       />
     );
   }

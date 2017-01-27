@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { dispatchAddTodo, dispatchGetTodos } from '../actions/dispatch.actions';
-import TodoList from './TodoList';
+import { dispatchAddTodo } from '../actions/dispatch.actions';
 
 class TodoForm extends Component {
   static propTypes = {
@@ -42,9 +41,6 @@ class TodoForm extends Component {
           />
           <button>Add Todo</button>
         </form>
-        <TodoList
-          getTodos={() => this.props.dispatch(dispatchGetTodos())}
-        />
       </div>
     );
   }
