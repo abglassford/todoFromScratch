@@ -2,13 +2,13 @@ import React, { PropTypes, Component } from 'react';
 import EditableTodo from './EditableTodo';
 import Uneditabletodo from './UneditableTodo';
 
-
 class Todo extends Component {
   static propTypes = {
     text: PropTypes.string,
     completed: PropTypes.bool,
     completeTodo: PropTypes.func,
     deleteTodo: PropTypes.func,
+    renameTodo: PropTypes.func,
   }
 
   static defaultProps = {
@@ -27,7 +27,20 @@ class Todo extends Component {
     };
   }
 
-  edit() {
+  dispatchEdit() {
+    this.props.renameTodo(this.state.value);
+    this.setState({
+      editable: false,
+    });
+  }
+
+  watchChange(e) {
+    this.setState({
+      value: e.target.value,
+    });
+  }
+
+  enableEdit() {
     if (!this.props.completed) {
       this.setState({
         editable: true,
@@ -40,7 +53,8 @@ class Todo extends Component {
       return (
         <EditableTodo
           text={this.props.text}
-          parent={this}
+          onChange={e => this.watchChange(e)}
+          onClick={() => this.dispatchEdit()}
         />
       );
     }
@@ -50,7 +64,7 @@ class Todo extends Component {
         text={this.props.text}
         completed={this.props.completed}
         deleteTodo={this.props.deleteTodo}
-        editTodo={() => this.edit()}
+        enableEdit={() => this.enableEdit()}
       />
     );
   }

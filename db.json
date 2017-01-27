@@ -1,14 +1,19 @@
 {
   "todos": [
     {
-      "text": "sleep",
+      "text": "Eat More",
       "completed": false,
-      "id": "db5ac487-7b58-49b3-8585-92f0cf0092e0"
+      "id": "7a655ba6-3252-4220-b570-17d12b82e2c5"
     },
     {
-      "text": "eat",
-      "completed": false,
-      "id": "f174df62-c7f2-4931-a032-48d59f5353f7"
+      "text": "Sleep",
+      "completed": true,
+      "id": "b3af0728-cd03-4010-b90c-85412727dd45"
+    },
+    {
+      "text": "Code",
+      "completed": true,
+      "id": "7ee20138-73e1-4df8-8665-acfe45b00d1a"
     }
   ]
 }

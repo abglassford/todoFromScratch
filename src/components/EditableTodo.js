@@ -1,17 +1,12 @@
 import React, { PropTypes } from 'react';
-import { dispatchCompleteTodo, dispatchDeleteTodo, dispatchRenameTodo } from '../actions/dispatch.actions';
 
-const EditableTodo = ({ text }) => (
+const EditableTodo = ({ text, onChange, onClick }) => (
   <tr>
     <td>
       <input
         className="todoEditInput"
         defaultValue={text}
-        onChange={(e) => {
-          parent.setState({
-            value: e.target.value,
-          });
-        }}
+        onChange={onChange}
       />
     </td>
     <td>
@@ -20,13 +15,7 @@ const EditableTodo = ({ text }) => (
         dangerouslySetInnerHTML={{
           __html: '&#x2713',
         }}
-        onClick={(e) => {
-          e.preventDefault();
-          dispatchRenameTodo();
-          parent.setState({
-            editable: false,
-          });
-        }}
+        onClick={onClick}
       />
     </td>
   </tr>
@@ -34,12 +23,14 @@ const EditableTodo = ({ text }) => (
 
 EditableTodo.propTypes = {
   text: PropTypes.string,
-  parent: PropTypes.object,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 EditableTodo.defaultProps = {
   text: '',
-  parent: {},
+  onChange: () => {},
+  onClick: () => {},
 };
 
 export default EditableTodo;

@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react';
 import DeleteTodo from './DeleteTodo';
 import CompleteTodo from './CompleteTodo';
 
-const UneditableTodo = ({ completed, completeTodo, deleteTodo, text, editTodo }) => (
+const UneditableTodo = ({ completed, completeTodo, deleteTodo, text, enableEdit }) => (
   <tr>
     <td>
       <a
         className="todo"
-        onClick={() => editTodo()}
+        onClick={() => enableEdit()}
         style={{
           textDecoration: completed ? 'line-through' : 'none',
         }}
@@ -31,7 +31,7 @@ UneditableTodo.propTypes = {
   text: PropTypes.string,
   completeTodo: PropTypes.func,
   deleteTodo: PropTypes.func,
-  editTodo: PropTypes.func,
+  enableEdit: PropTypes.func,
   completed: PropTypes.bool,
 };
 
@@ -39,7 +39,7 @@ UneditableTodo.defaultProps = {
   text: '',
   completeTodo: () => {},
   deleteTodo: () => {},
-  editTodo: () => {},
+  enableEdit: () => {},
   completed: false,
 };
 
