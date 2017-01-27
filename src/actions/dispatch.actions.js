@@ -15,8 +15,8 @@ const dispatchRenameTodo = (todo, text) => ({
   },
 });
 
-const dispatchAddTodo = text => ({
-  type: 'DISPATCH_ADD_TODO',
+const addTodo = text => ({
+  type: 'ADD_TODO',
   text,
 });
 
@@ -26,7 +26,7 @@ const completeTodo = todo => ({
 });
 
 export {
-  dispatchAddTodo,
+  addTodo,
   completeTodo,
   getTodos,
   deleteTodo,

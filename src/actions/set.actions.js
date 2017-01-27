@@ -8,11 +8,6 @@ const setComplete = todo => ({
   todo,
 });
 
-const addTodo = todo => ({
-  type: 'ADD_TODO',
-  todo,
-});
-
 const replaceTodos = todos => ({
   type: 'REPLACE_TODOS',
   todos,
@@ -21,6 +16,5 @@ const replaceTodos = todos => ({
 export {
   setVisibilityFilter,
   setComplete,
-  addTodo,
   replaceTodos,
 };

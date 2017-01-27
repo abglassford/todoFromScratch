@@ -16,13 +16,13 @@ describe('setTodos', () => {
 });
 
 describe('addSaga', () => {
-  const action = dispatch.dispatchAddTodo();
+  const action = dispatch.addTodo();
   const iterator = sagas.addSaga(action);
   it('must call first yield of generator function', () => {
     expect(iterator.next().value).to.deep.equal(call(routes.postTodo, action.text));
   });
   it('must call second yield of generator function', () => {
-    expect(iterator.next().value).to.deep.equal(put(set.addTodo()));
+    expect(iterator.next().value).to.deep.equal(call(sagas.setTodos()));
   });
 });
 

@@ -9,14 +9,6 @@ const todoApp = (state = initialState, action) => {
       return Object.assign({}, state, {
         todos: action.todos,
       });
-    case 'ADD_TODO':
-      return Object.assign({}, state, {
-        todos: [...state.todos, {
-          text: action.todo.text,
-          completed: action.todo.completed,
-          id: action.todo.id,
-        }],
-      });
     case 'SET_COMPLETE_TODO':
       return Object.assign({}, state, {
         todos: state.todos.map((todo) => {

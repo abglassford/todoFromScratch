@@ -1,6 +1,6 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { postTodo, getAllTodos, completeTodo, deleteTodo, renameTodo } from './routes';
-import { setComplete, addTodo, replaceTodos } from './actions/set.actions';
+import { setComplete, replaceTodos } from './actions/set.actions';
 
 export function* setTodos() {
   const result = yield call(getAllTodos);
@@ -8,8 +8,8 @@ export function* setTodos() {
 }
 
 export function* addSaga(action) {
-  const result = yield call(postTodo, action.text);
-  yield put(addTodo(result));
+  yield call(postTodo, action.text);
+  yield call(setTodos);
 }
 
 export function* complete(action) {
@@ -32,7 +32,7 @@ export function* watchGetSaga() {
 }
 
 export function* watchAddSaga() {
-  yield takeEvery('DISPATCH_ADD_TODO', addSaga);
+  yield takeEvery('ADD_TODO', addSaga);
 }
 
 export function* watchComplete() {

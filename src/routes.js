@@ -8,7 +8,7 @@ const postTodo = text => axios.post(url, {
   completed: false,
   id: uuidv1(),
 })
-.then(data => data.data);
+.then(data => data);
 
 const getAllTodos = () => axios.get(url)
   .then(data => data.data);
