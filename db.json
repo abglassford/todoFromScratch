@@ -1,34 +1,29 @@
 {
   "todos": [
     {
-      "text": "sleep",
+      "text": "eat",
       "completed": true,
-      "id": "0162a2b3-a3ac-4d78-a072-dc99a0e48a2a"
+      "id": "753e9d6c-3cfe-43e5-9168-4dc429898ca1"
     },
     {
-      "text": "code",
+      "text": "sleep",
       "completed": false,
-      "id": "c8f7fd45-2256-402e-aa76-4b2d5567d9fc"
+      "id": "5e98c6b9-407a-44d0-8d6b-bd5fd524451a"
     },
     {
       "text": "taco",
-      "completed": false,
-      "id": "69b46863-6194-4c5e-a73e-7d895ef556a4"
+      "completed": true,
+      "id": "3bcf3cd1-9a60-4c34-ae1f-2ebf31988103"
     },
     {
-      "text": "monkey",
+      "text": "don't code",
       "completed": false,
-      "id": "20bef347-9e77-449f-9d95-2a278f44c5b6"
+      "id": "8320bb2f-3eb1-471d-9e46-41d2ffb59fa3"
     },
     {
-      "text": "sdfsdf",
+      "text": "eat more",
       "completed": false,
-      "id": "9405a89c-b9ca-4c41-acde-c677151ae151"
-    },
-    {
-      "text": "eat",
-      "completed": false,
-      "id": "9837b132-bacf-441b-bb48-ba8a6c8d0051"
+      "id": "c7970cd0-874c-4a97-9be4-35a63b5cecf2"
     }
   ]
 }

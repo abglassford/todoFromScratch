@@ -1,38 +1,38 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { postTodo, getAllTodos, completeTodo, deleteTodo, renameTodo } from './routes';
-import { setComplete, replaceTodos } from './actions/set.actions';
+import { replaceTodos } from './actions/set.actions';
 
-export function* setTodos() {
+export function* set() {
   const result = yield call(getAllTodos);
   yield put(replaceTodos(result));
 }
 
-export function* addSaga(action) {
+export function* add(action) {
   yield call(postTodo, action.text);
-  yield call(setTodos);
+  yield call(set);
 }
 
 export function* complete(action) {
-  const result = yield call(completeTodo, action);
-  yield put(setComplete(result));
+  yield call(completeTodo, action);
+  yield call(set);
 }
 
-export function* deleteSaga(action) {
+export function* remove(action) {
   yield call(deleteTodo, action);
-  yield call(setTodos);
+  yield call(set);
 }
 
-export function* editSaga(action) {
+export function* rename(action) {
   yield call(renameTodo, action);
-  yield setTodos();
+  yield call(set);
 }
 
 export function* watchGetSaga() {
-  yield takeEvery('GET_TODOS', setTodos);
+  yield takeEvery('GET_TODOS', set);
 }
 
 export function* watchAddSaga() {
-  yield takeEvery('ADD_TODO', addSaga);
+  yield takeEvery('ADD_TODO', add);
 }
 
 export function* watchComplete() {
@@ -40,11 +40,11 @@ export function* watchComplete() {
 }
 
 export function* watchDeleteSaga() {
-  yield takeEvery('DELETE_TODO', deleteSaga);
+  yield takeEvery('DELETE_TODO', remove);
 }
 
 export function* watchEditSaga() {
-  yield takeEvery('RENAME_TODO', editSaga);
+  yield takeEvery('RENAME_TODO', rename);
 }
 
 export default function* rootSaga() {
