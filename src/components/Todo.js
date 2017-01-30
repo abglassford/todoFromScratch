@@ -27,7 +27,7 @@ class Todo extends Component {
     };
   }
 
-  dispatchEdit() {
+  rename() {
     this.props.renameTodo(this.state.value);
     this.setState({
       editable: false,
@@ -54,7 +54,7 @@ class Todo extends Component {
         <EditableTodo
           text={this.props.text}
           onChange={e => this.watchChange(e)}
-          onClick={() => this.dispatchEdit()}
+          onClick={() => this.rename()}
         />
       );
     }

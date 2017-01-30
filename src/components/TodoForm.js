@@ -15,7 +15,7 @@ class TodoForm extends Component {
       value: '',
     };
   }
-  onInputChange() {
+  onChange() {
     return (e) => {
       this.setState({ value: e.target.value });
     };
@@ -37,7 +37,7 @@ class TodoForm extends Component {
         <form onSubmit={this.submit()}>
           <input
             value={this.state.value}
-            onChange={this.onInputChange()}
+            onChange={this.onChange()}
           />
           <button>Add Todo</button>
         </form>

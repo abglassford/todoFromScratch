@@ -44,7 +44,7 @@ export function* watchDeleteSaga() {
 }
 
 export function* watchEditSaga() {
-  yield takeEvery('DISPATCH_RENAME_TODO', editSaga);
+  yield takeEvery('RENAME_TODO', editSaga);
 }
 
 export default function* rootSaga() {

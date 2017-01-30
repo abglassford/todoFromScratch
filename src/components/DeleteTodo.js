@@ -10,11 +10,11 @@ const DeleteTodo = ({ onDelete }) =>
   />;
 
 DeleteTodo.propTypes = {
-  onClick: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 DeleteTodo.defaultProps = {
-  onClick: () => {},
+  onDelete: () => {},
 };
 
 export default DeleteTodo;

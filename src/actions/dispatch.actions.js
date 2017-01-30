@@ -7,8 +7,8 @@ const deleteTodo = todo => ({
   todo,
 });
 
-const dispatchRenameTodo = (todo, text) => ({
-  type: 'DISPATCH_RENAME_TODO',
+const rename = (todo, text) => ({
+  type: 'RENAME_TODO',
   todo: {
     ...todo,
     text,
@@ -30,5 +30,5 @@ export {
   completeTodo,
   getTodos,
   deleteTodo,
-  dispatchRenameTodo,
+  rename,
 };
