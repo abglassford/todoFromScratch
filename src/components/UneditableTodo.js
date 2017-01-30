@@ -5,7 +5,7 @@ import CompleteTodo from './CompleteTodo';
 const UneditableTodo = ({ completed, onComplete, onDelete, text, enableEdit }) => (
   <tr>
     <td>
-      <a
+      <p
         className="todo"
         onClick={() => enableEdit()}
         style={{
@@ -13,7 +13,7 @@ const UneditableTodo = ({ completed, onComplete, onDelete, text, enableEdit }) =
         }}
       >
         {text}
-      </a>
+      </p>
     </td>
     <td>
       <CompleteTodo

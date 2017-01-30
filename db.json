@@ -2,7 +2,7 @@
   "todos": [
     {
       "text": "eat",
-      "completed": true,
+      "completed": false,
       "id": "753e9d6c-3cfe-43e5-9168-4dc429898ca1"
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "text": "taco",
-      "completed": true,
+      "completed": false,
       "id": "3bcf3cd1-9a60-4c34-ae1f-2ebf31988103"
     },
     {
       "text": "don't code",
-      "completed": false,
+      "completed": true,
       "id": "8320bb2f-3eb1-471d-9e46-41d2ffb59fa3"
     },
     {
