@@ -1,21 +1,22 @@
 import React, { PropTypes } from 'react';
 import DeleteTodo from './DeleteTodo';
 import CompleteTodo from './CompleteTodo';
+import RenameTodo from './RenameTodo';
 
 const UneditableTodo = ({ completed, onComplete, onDelete, text, enableEdit }) => (
   <tr>
-    <td>
-      <p
-        className="todo"
-        onClick={() => enableEdit()}
-        style={{
-          textDecoration: completed ? 'line-through' : 'none',
-        }}
-      >
-        {text}
-      </p>
+    <td
+      className="todo"
+      style={{
+        textDecoration: completed ? 'line-through' : 'none',
+      }}
+    >
+      {text}
     </td>
     <td>
+      <RenameTodo
+        onRename={enableEdit}
+      />
       <CompleteTodo
         onComplete={onComplete}
         completed={completed}
